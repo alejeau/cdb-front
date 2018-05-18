@@ -21,12 +21,12 @@ export class CompanyService {
     return this.http.get<Company>(this.baseUrl + '/companies/' + id);
   }
 
-  addCompany(recipe: Company): Observable<any> {
-    return this.http.post<Company>(this.baseUrl + '/companies/', recipe);
+  addCompany(company: Company): Observable<any> {
+    return this.http.post<Company>(this.baseUrl + '/companies/', company);
   }
 
-  updateCompany(recipe: Company): Observable<any> {
-    return this.http.patch<Company>(this.baseUrl + '/companies/', recipe);
+  updateCompany(company: Company): Observable<any> {
+    return this.http.patch<Company>(this.baseUrl + '/companies/', company);
   }
 
   deleteCompany(id: string): Observable<any> {
