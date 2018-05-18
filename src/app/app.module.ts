@@ -8,6 +8,7 @@ import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { CompanyUpdateComponent } from './company-update/company-update.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CompanyUpdateComponent } from './company-update/company-update.componen
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [

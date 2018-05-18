@@ -9,12 +9,8 @@ export class CompanyUpdateComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-
-  submit() : void {
-
-  }
+  submit() : void { }
 
 }
