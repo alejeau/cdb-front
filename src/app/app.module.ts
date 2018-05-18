@@ -18,14 +18,15 @@ import { RouterModule } from '@angular/router';
 import { CompanyModule } from './company/company.module';
 import { ComputerModule } from './computer/computer.module';
 import { IndexComponent } from './index/index.component';
-
+import {AppLoginComponent} from './app-login/app-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    IndexComponent
+    IndexComponent,
+    AppLoginComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -45,6 +46,10 @@ import { IndexComponent } from './index/index.component';
     ComputerModule
   ],
   exports: [
+    FormsModule,
+    RouterModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [
     CompanyService,

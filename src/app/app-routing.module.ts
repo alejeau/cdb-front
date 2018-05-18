@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { AppDashboardComponent } from './app-dashboard/app-dashboard.component';
 import {AuthGuard} from './auth-guard.service';
 import {AppLoginComponent} from './app-login/app-login.component';
+import {FormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
   {
@@ -21,7 +22,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes),
-    CommonModule
+    RouterModule
   ],
   exports : [
     RouterModule
