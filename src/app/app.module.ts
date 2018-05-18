@@ -7,6 +7,7 @@ import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { CompanyComponent } from './company/company.component';
+import { CompanyService } from './company.service';
 import { CompaniesComponent } from './companies/companies.component';
 
 @NgModule({
@@ -26,7 +27,7 @@ import { CompaniesComponent } from './companies/companies.component';
     MatIconModule,
     MatListModule
   ],
-  providers: [],
+  providers: [CompanyService],
   bootstrap: [
     AppComponent,
     HeaderComponent
