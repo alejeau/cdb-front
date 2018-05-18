@@ -1,22 +1,28 @@
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule } from '@angular/material';
 import { MyDashComponent } from './my-dash/my-dash.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {CustomMaterialModule} from "./custom-material/custom-material.module";
+import { MyNavComponent } from './my-nav/my-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyDashComponent
+    MyDashComponent,
+    MyNavComponent
   ],
   imports: [
     BrowserAnimationsModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
+    CustomMaterialModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
     MatIconModule,
-    MatButtonModule
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
