@@ -6,8 +6,11 @@ import {
   MatGridListModule,
   MatIconModule, MatListModule,
   MatMenuModule,
-  MatSidenavModule, MatToolbarModule
-} from '@angular/material';
+  MatSidenavModule, MatToolbarModule,
+  MatFormFieldModule,
+  MatInputModule
+}
+from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {LayoutModule} from '@angular/cdk/layout';
 
@@ -23,11 +26,12 @@ import {LayoutModule} from '@angular/cdk/layout';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-
+    MatFormFieldModule,
+    MatInputModule,
   ],
 
   exports: [
-    BrowserAnimationsModule,
+    CommonModule,
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
@@ -37,6 +41,8 @@ import {LayoutModule} from '@angular/cdk/layout';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   declarations: []
 })

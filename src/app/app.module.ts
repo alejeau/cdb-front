@@ -5,7 +5,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,  MatFormField,
+  MatFormFieldModule, MatInputModule
+} from '@angular/material';
 import { CompanyComponent } from './company/company.component';
 import { ComputerComponent } from './computer/computer.component';
 import { CompanyService } from './company.service';

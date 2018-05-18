@@ -10,6 +10,8 @@ import {Router} from '@angular/router';
 export class AppLoginComponent {
 
   message: string;
+  username: string;
+  password: string;
 
   constructor(public authService: AuthService, public router: Router) {
     this.setMessage();
@@ -23,9 +25,9 @@ export class AppLoginComponent {
     this.message = 'Trying to log in ...';
     this.authService.login().subscribe(() => {
       this.setMessage();
-      /*if (this.authService.isLoggedIn) {
+      if (this.authService.isLoggedIn) {
         this.router.navigate([this.authService.redirectUrl]);
-      }*/
+      }
     });
   }
 
