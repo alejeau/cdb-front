@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+import { HeaderComponent } from './header/header.component';
 import { AppComponent } from './app.component';
 import { AppDashboardComponent } from './app-dashboard/app-dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,7 +11,8 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 @NgModule({
   declarations: [
     AppComponent,
-    AppDashboardComponent
+    AppDashboardComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -23,6 +25,9 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     MatListModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+    HeaderComponent
+  ]
 })
 export class AppModule { }
