@@ -9,6 +9,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { CompanyComponent } from './company/company.component';
 import { CompanyService } from './company.service';
 import { CompaniesComponent } from './companies/companies.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CompaniesComponent } from './companies/companies.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
   providers: [CompanyService],
   bootstrap: [
