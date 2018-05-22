@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
 import {Router} from '@angular/router';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-app-login',
@@ -13,7 +14,7 @@ export class AppLoginComponent {
   username: string;
   password: string;
 
-  constructor(public authService: AuthService, public router: Router) {
+  constructor(private authService: AuthService, private router: Router) {
     this.setMessage();
   }
 
@@ -22,8 +23,10 @@ export class AppLoginComponent {
   }
 
   login() {
+    console.log('Login');
+    this.router.navigate([this.authService.redirectUrl]);
     this.message = 'Trying to log in ...';
-    this.authService.login().subscribe(() => {
+    this.authService.login(this.username, this.password).subscribe(() => {
       this.setMessage();
       if (this.authService.isLoggedIn) {
         this.router.navigate([this.authService.redirectUrl]);

@@ -21,6 +21,7 @@ import { CompanyModule } from './company/company.module';
 import { ComputerModule } from './computer/computer.module';
 import { IndexComponent } from './index/index.component';
 import {AppLoginComponent} from './app-login/app-login.component';
+import { AppLogoutComponent } from './app-logout/app-logout.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {AppLoginComponent} from './app-login/app-login.component';
     HeaderComponent,
     FooterComponent,
     IndexComponent,
-    AppLoginComponent
+    AppLoginComponent,
+    AppLogoutComponent
   ],
   imports: [
     BrowserAnimationsModule,

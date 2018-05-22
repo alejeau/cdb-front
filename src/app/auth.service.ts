@@ -9,11 +9,15 @@ export class AuthService {
 
   isLoggedIn = false;
 
-  redirectUrl: string;
+  redirectUrl = '';
 
-  login(): Observable<boolean> {
+  login(username: string, password: string): Observable<boolean> {
     return of (true).pipe(delay(1000),
-      tap(val => this.isLoggedIn = true)
+      tap(val => {
+          if (username === 'admin' && password === 'admin') {
+            this.isLoggedIn = true;
+          }
+      })
     );
   }
 

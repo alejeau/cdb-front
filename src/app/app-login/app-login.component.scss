@@ -1,8 +1,11 @@
-.login-container {
-  display: flex;
-  flex-direction: column;
+.mat-card{
+  align-items : center;
+  justify-content : center;
+  flex-direction : row;
+  background-color : white;
+  margin : 30px;
+  max-width : 350px;
 }
 
-.login-container> * {
-  width: 25%;
+.mat-card-header{
 }
