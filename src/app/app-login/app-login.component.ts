@@ -39,6 +39,8 @@ export class AppLoginComponent implements OnInit {
   }
 
   login() {
+    this.username = this.loginForm.get('username').value;
+    this.password = this.loginForm.get('password').value;
     this.router.navigate([this.authService.redirectUrl]);
     this.message = 'Trying to log in ...';
     this.authService.login(this.username, this.password).subscribe(() => {
