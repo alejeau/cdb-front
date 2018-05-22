@@ -22,4 +22,17 @@ export class CompaniesComponent implements OnInit {
           );
   }
 
+  fillCompany(value: Company): Company {
+    value.description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer cursus ante mi. Donec nisl ante, \
+                          vestibulum vitae mattis cursus, dignissim.';
+    value.logo = 'http://www.fourchette-et-bikini.fr/sites/default/files/styles/full_670x350/public/nestor_1.png?itok=jS_iIGw5';
+    return value;
+  }
+
+
+  search(searchTerm: string) {
+    console.log('recherche du terme :' + searchTerm);
+    // this.recipes.splice(this.recipes.findIndex(r => r.id === id), 1);
+  }
+
 }

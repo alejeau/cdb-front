@@ -1,4 +1,4 @@
-<div class="container" style="margin-top:20px;">
+<div class="container" style="margin-top:20px;" (searchEvent)="search($event)">
   <div class="row">
       <app-company *ngFor="let company of companies" [company]="company"></app-company>
   </div>
