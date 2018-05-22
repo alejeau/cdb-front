@@ -1,20 +1,26 @@
-<div class="row">
-  <form class="col s12" (submit)="submit()">
-    <div class="form-design row" [formGroup]="mainForm">
-      <!--<img src="{{company.logo}}">-->
-      <div class="input-field col s6 form-design" >
-        <input placeholder="Company Name" formControlName="name" id="name" type="text" class="validate">
-      </div>
+<div class="container nav-wrapper">
+  <form class="card medium sticky-action z-depth-1 row" (submit)="submit()" [formGroup]="mainForm">
+    <!--<div class="card-image waves-effect waves-block waves-light">-->
+    <!--<img class="activator" src="{{ company.logo }}">-->
+    <!--</div>-->
 
-      <div class="input-field col s6">
-        <input placeholder="Description" formControlName="description" id="description" type="text" class="validate">
-      </div>
+    <div class="card-content">
+      <input placeholder="Company Name" type="text" id="name" value="{{company.name}}" formControlName="name" class="waves-light lighten-1 right">
+      <label for="name">Company Name</label>
+    </div>
 
-      <div class="input-field col s6">
-        <input placeholder="Logo" formControlName="logo" id="logo" type="text" class="validate">
-      </div>
+    <div class="card-content">
+      <input placeholder="Logo" type="text" id="logo" value="{{company.logo}}" formControlName="logo" class="waves-light lighten-1 right">
+      <label for="name">Logo</label>
+    </div>
 
-      <button class="waves-effect waves-light btn">Submit</button>
+    <div class="card-content">
+      <textarea placeholder="Description" type="text" id="description" value="{{company.description}}" formControlName="description" class="materialize-textarea waves-light lighten-1 right"></textarea>
+      <label for="name">Description</label>
+    </div>
+
+    <div class="card-action">
+      <button class="btn waves-effect waves-light blue lighten-1">Submit</button>&nbsp;
     </div>
   </form>
 </div>

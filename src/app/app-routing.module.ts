@@ -4,7 +4,6 @@ import {RouterModule, Routes} from "@angular/router";
 import {AppDashboardComponent} from "./app-dashboard/app-dashboard.component";
 import {CompanyUpdateComponent} from "./company-update/company-update.component";
 
-
 const routes: Routes = [
   {
     path: 'dashboard',
