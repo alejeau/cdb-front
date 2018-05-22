@@ -1,5 +1,8 @@
 <div class="login-container" align="center">
   <!-- formGroup ?? -->
+  <!--<form #form="ngForm" (ngSubmit)="login()" [formGroup]="loginForm">-->
+
+    <span><p>{{ message }}</p></span>
   <mat-card>
     <mat-card-header>
       <div align="center">
@@ -7,24 +10,27 @@
       </div>
     </mat-card-header>
     <mat-card-content>
-      <span><p>{{ message }}</p></span>
-      <form [formGroup]="loginForm" (ngSubmit)="login()" #form="ngForm">
+
+
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div>
           <mat-form-field>
-            <input matInput placeholder="Input" name="username" [(ngModel)]="username">
+            <input matInput placeholder="Input" formControlName="username" name="username" [(ngModel)]="username">
           </mat-form-field>
         </div>
         <div>
           <mat-form-field>
-            <input type="password" matInput name="password" placeholder="Password" [(ngModel)]="password">
+            <input type="password" matInput name="password" formControlName="password" placeholder="Password" [(ngModel)]="password">
           </mat-form-field>
         </div>
         <div>
-          <button type="submit" mat-raised-button>
+          <button type="submit" mat-raised-button [disabled]="loginForm.invalid" >
             Submit
           </button>
         </div>
       </form>
+
     </mat-card-content>
   </mat-card>
+
 </div>
