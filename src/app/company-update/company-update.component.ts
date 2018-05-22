@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Company} from "../company.model";
+import {FormBuilder, FormGroup , Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-company-update',
@@ -7,10 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyUpdateComponent implements OnInit {
 
-  constructor() { }
+  company: Company = new Company();
+  mainForm: FormGroup;
 
-  ngOnInit() { }
+  initForm() {
+    this.mainForm = this.fb.group({
+      name: ['', {validators: [Validators.required]}],
+      description: '',
+      logo: ''
+    });
+  }
 
-  submit() : void { }
+  constructor(private fb: FormBuilder) { }
+
+  ngOnInit() {
+    this.initForm();
+  }
+
+  submit() : void {
+    this.company.name = this.mainForm.get('name').value;
+    this.company.description = this.mainForm.get('description').value;
+    this.company.logo = this.mainForm.get('logo').value;
+    console.log(this.company);
+    // Service.update().subscribe(() => console.log('Updated !'));
+  }
 
 }

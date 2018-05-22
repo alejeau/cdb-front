@@ -1,14 +1,20 @@
 <div class="row">
-  <form class="col s12" (submit)="submit($event)">
-    <div class="row">
-      <div class="input-field col s6">
-        <input placeholder="Placeholder" id="name" type="text" class="validate">
-        <label for="name">First Name</label>
+  <form class="col s12" (submit)="submit()">
+    <div class="form-design row" [formGroup]="mainForm">
+      <!--<img src="{{company.logo}}">-->
+      <div class="input-field col s6 form-design" >
+        <input placeholder="Company Name" formControlName="name" id="name" type="text" class="validate">
       </div>
+
       <div class="input-field col s6">
-        <input id="last_name" type="text" class="validate">
-        <label for="last_name">Last Name</label>
+        <input placeholder="Description" formControlName="description" id="description" type="text" class="validate">
       </div>
+
+      <div class="input-field col s6">
+        <input placeholder="Logo" formControlName="logo" id="logo" type="text" class="validate">
+      </div>
+
+      <button class="waves-effect waves-light btn">Submit</button>
     </div>
   </form>
 </div>

@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatCardModule, MatGridListModule, MatIconModule, MatMenuModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatGridListModule,
+  MatIconModule, MatListModule,
+  MatMenuModule,
+  MatSidenavModule, MatToolbarModule
+} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {LayoutModule} from "@angular/cdk/layout";
 
 @NgModule({
   imports: [
@@ -9,8 +17,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
+    MatButtonModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
     MatIconModule,
-    MatButtonModule
+    MatListModule,
+
   ],
 
   exports: [
@@ -18,8 +31,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
+    MatButtonModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
     MatIconModule,
-    MatButtonModule
+    MatListModule,
   ],
   declarations: []
 })
