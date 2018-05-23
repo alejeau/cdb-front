@@ -11,6 +11,8 @@ import { CompanyService } from './company.service';
 import { CompaniesComponent } from './companies/companies.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
+  ],
+  exports: [
+    CompaniesComponent
   ],
   providers: [CompanyService],
   bootstrap: [
