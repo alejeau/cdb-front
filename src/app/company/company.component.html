@@ -1,13 +1,13 @@
 <div class="col s12 m6 l4">
-  <div class="card medium sticky-action">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="{{ company.logo }}">
-    </div>
-    <div class="card-content">
+  <div class="card small sticky-action">
+    <div class="card-content" style="padding-top: 10px; padding-bottom: 0px;">
       <span class="card-title activator grey-text text-darken-4">{{ company.name }}<i class="material-icons right">more_vert</i></span>
     </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">{{ company.name }}<i class="material-icons right">close</i></span>
+    <div class="card-image waves-effect waves-block waves-light" style="height:100%;">
+      <img class="activator" src="{{ company.pictureUrl }}">
+    </div>
+    <div class="card-reveal" style="background-color: rgb(255,255,255,0.93);">
+      <span class="card-title grey-text text-darken-4" style="background-color: #ffffff; margin-top: -18px;">{{ company.name }}<i class="material-icons right">close</i></span>
       <p>{{ company.description }}</p>
     </div>
     <div class="card-action ">
