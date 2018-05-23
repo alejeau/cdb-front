@@ -11,6 +11,7 @@ import {NavigationEnd, Router} from "@angular/router";
 
 export class CompanyUpdateComponent implements OnInit {
 
+  // Ici on récupère la company selon l'id via le service
   company: Company = new Company();
   mainForm: FormGroup;
 
