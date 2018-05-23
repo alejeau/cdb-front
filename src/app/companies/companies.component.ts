@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Company } from '../company.model';
 import { CompanyService } from '../company.service';
+declare var initModal: any;
 
 @Component({
   selector: 'app-companies',
@@ -9,6 +10,7 @@ import { CompanyService } from '../company.service';
 })
 export class CompaniesComponent implements OnInit {
 
+  initModal: any;
   companies: Company[];
   companiesToPrint: Company[];
   @Input() searchTerm;
@@ -29,10 +31,16 @@ export class CompaniesComponent implements OnInit {
   setArrays(companies: Company[]): void {
     this.companies = companies;
     this.companiesToPrint = companies;
+    initModal();
   }
 
   search(searchTerm: string) {
     this.companiesToPrint = this.companies.filter((company) => company.name.toLowerCase().startsWith(searchTerm.toLocaleLowerCase()));
+  }
+
+  delete(id: number) {
+    this.companies.splice(this.companies.findIndex(c => c.id === id));
+    this.companiesToPrint = this.companies;
   }
 
 }
