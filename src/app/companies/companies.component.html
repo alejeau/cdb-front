@@ -14,6 +14,23 @@
 
 <div class="container" (searchEvent)="search($event)">
   <div class="row">
-      <app-company *ngFor="let company of companiesToPrint" [company]="company" (deleteEvent)="delete($event)"></app-company>
+      <div *ngIf="companies == null;then loading else loaded"></div>
+
+      <ng-template #loading>
+        <div class="preloader-wrapper big active" style="margin:auto">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #loaded>
+          <app-company *ngFor="let company of companiesToPrint" [company]="company" (deleteEvent)="delete($event)"></app-company>
+      </ng-template>
   </div>
 </div>

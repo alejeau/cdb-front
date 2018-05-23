@@ -37,6 +37,11 @@ header + .container {
   margin-top:-5px;
 }
 
+.preloader-wrapper.active {
+  margin: auto;
+  display: inherit;
+}
+
 /* company */
 .card .card-content {
   padding-top: 10px;
