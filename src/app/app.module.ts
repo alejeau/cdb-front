@@ -1,18 +1,21 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 
-import { HeaderComponent } from './header/header.component';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CustomMaterialModule } from './custom-material/custom-material.module';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
-import { CompanyComponent } from './company/company.component';
-import { CompanyService } from './company.service';
-import { CompaniesComponent } from './companies/companies.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HeaderComponent} from './header/header.component';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CustomMaterialModule} from './custom-material/custom-material.module';
+import {LayoutModule} from '@angular/cdk/layout';
+import {MatButtonModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import {CompanyComponent} from './company/company.component';
+import {CompanyService} from './company.service';
+import {CompaniesComponent} from './companies/companies.component';
+import {HttpClientModule} from '@angular/common/http';
 
-import { FormsModule } from '@angular/forms';
-import { FooterComponent } from './footer/footer.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FooterComponent} from './footer/footer.component';
+import {AddCompanyComponent} from './add-company/add-company.component';
+import {AppRoutingModule} from './app-routing/app-routing.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     CompanyComponent,
     CompaniesComponent,
-    FooterComponent
+    FooterComponent,
+    AddCompanyComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -32,7 +36,10 @@ import { FooterComponent } from './footer/footer.component';
     MatIconModule,
     MatListModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    AppRoutingModule
   ],
   exports: [
     CompaniesComponent

@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CompanyService {
 
-  private baseUrl = 'http://10.0.1.206:8080/computer-database-webservice/';
+  private baseUrl = 'http://localhost:8080/computer-database-webservice';
 
   constructor(private http: HttpClient) {
   }
