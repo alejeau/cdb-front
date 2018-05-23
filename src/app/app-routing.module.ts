@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
-import {AppDashboardComponent} from "./app-dashboard/app-dashboard.component";
 import {CompanyUpdateComponent} from "./company-update/company-update.component";
+import {CompaniesComponent} from "./companies/companies.component";
 
 const routes: Routes = [
   {
     path: 'dashboard',
-    component: AppDashboardComponent,
+    component: CompaniesComponent,
     pathMatch: 'full'
   },
   {
-    path: 'update',
+    path: 'update/:id',
     component: CompanyUpdateComponent,
     pathMatch: 'full'
   },
