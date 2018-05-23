@@ -39,7 +39,7 @@ export class CompaniesComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.companies.splice(this.companies.findIndex(c => c.id === id));
+    this.companies.splice(this.companies.findIndex(c => c.id === id), 1);
     this.companiesToPrint = this.companies;
   }
 
