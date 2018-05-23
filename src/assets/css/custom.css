@@ -18,3 +18,46 @@ app-root {
 main {
   flex: 1 0 auto;
 }
+
+/* companies */
+.input-field input[type="search"] {
+  padding-left:45px;
+  color:#efefef;
+}
+
+.input-field input[type="search"]:focus {
+  color:black;
+}
+
+header + .container {
+  margin-top:20px;
+}
+
+.input-field input[type="search"] + .label-icon {
+  margin-top:-5px;
+}
+
+/* company */
+.card .card-content {
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+.card-image {
+  height:100%;
+}
+
+.card .card-reveal {
+  background-color: rgb(255,255,255,0.93);
+}
+
+.card .card-reveal .card-title {
+  background-color: #ffffff;
+  margin-top: -18px;
+}
+
+/* header */
+.nav-wrapper {
+  margin-left:20px;
+  margin-right:20px;
+}
