@@ -26,7 +26,7 @@ export class CompanyService {
   }
 
   updateCompany(company: Company): Observable<any> {
-    return this.http.patch<Company>(this.baseUrl + '/companies/', company);
+    return this.http.put<Company>(this.baseUrl + '/companies/', company);
   }
 
   deleteCompany(id: string): Observable<any> {
