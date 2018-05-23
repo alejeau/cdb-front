@@ -12,13 +12,15 @@ import { CompaniesComponent } from './companies/companies.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CompanyComponent,
-    CompaniesComponent
+    CompaniesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserAnimationsModule,
