@@ -12,11 +12,12 @@ export class CompanyComponent implements OnInit {
 
   @Input() company: Company;
   @Output() deleteEvent = new EventEmitter<number>();
-  deleted = false;
+  show = false;
 
   constructor(private companyService: CompanyService) { }
 
   ngOnInit() {
+    interval(10).subscribe(() => this.show = true);
   }
 
   delete() {
@@ -29,7 +30,7 @@ export class CompanyComponent implements OnInit {
   }
 
   deleteSuccess() {
-    this.deleted = true;
+    this.show = false;
     interval(300).subscribe(() => this.deleteEvent.emit(this.company.id));
   }
 
