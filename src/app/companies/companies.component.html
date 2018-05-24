@@ -3,7 +3,7 @@
     <div class="nav-content">
       <form>
         <div class="input-field" >
-          <input id="search" type="search" name="searchTerm" required style="padding-left:45px;" (ngModelChange)="search($event)" [(ngModel)]="searchTerm">
+          <input id="search" type="search" name="searchTerm" required (ngModelChange)="search($event)" [(ngModel)]="searchTerm">
           <label class="label-icon" for="search"><i class="material-icons">search</i></label>
           <i class="material-icons">close</i>
         </div>
@@ -12,8 +12,25 @@
   </nav>
 </header>
 
-<div class="container" style="margin-top:20px;" (searchEvent)="search($event)">
+<div class="container" (searchEvent)="search($event)">
   <div class="row">
-      <app-company *ngFor="let company of companiesToPrint" [company]="company" (deleteEvent)="delete($event)"></app-company>
+      <div *ngIf="companies == null;then loading else loaded"></div>
+
+      <ng-template #loading>
+        <div class="preloader-wrapper big active" style="margin:auto">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #loaded>
+          <app-company *ngFor="let company of companiesToPrint" [company]="company" (deleteEvent)="delete($event)"></app-company>
+      </ng-template>
   </div>
 </div>
