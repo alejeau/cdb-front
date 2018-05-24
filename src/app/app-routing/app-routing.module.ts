@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
-import {CompanyUpdateComponent} from "./company-update/company-update.component";
-import {CompaniesComponent} from "./companies/companies.component";
+import {CompanyUpdateComponent} from "../company-update/company-update.component";
+import {CompaniesComponent} from "../companies/companies.component";
 
 const routes: Routes = [
   {

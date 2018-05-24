@@ -17,6 +17,7 @@ export class CompanyUpdateComponent implements OnInit {
   company: Company = new Company();
   form: FormGroup;
   isUpdated: boolean = true;
+  isSubmitted: boolean = false;
 
   initForm() {
     this.form = this.fb.group({
@@ -60,11 +61,11 @@ export class CompanyUpdateComponent implements OnInit {
   }
 
   submit() {
-    this.company = <Company>this.form.value;
+    this.isSubmitted = true;
+    this.company = <Company> this.form.value;
     this.companyService.updateCompany(this.company).subscribe(
-      () => {this.isUpdated = true; console.log('Updated !', this.company)},
-      (error: any) => {this.isUpdated = false; console.error('Failed to update company', error)});
+      () => {this.isUpdated = true; console.log('Company updated !', this.company)},
+      (error: any) => {this.isUpdated = false; console.error('Error in company update', error)});
     this.router.navigate(['update/' + this.company.id ]).then((value: boolean) => value ? console.log('redirect...') : console.log('stand'));
   }
-
 }

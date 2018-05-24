@@ -1,11 +1,15 @@
-<div class="container nav-wrapper col s12 m6 l4">
+<div class="container col s12 m6 l4 pad">
+
+  <div *ngIf="isSubmitted">
     <div *ngIf="isUpdated" class="alert alert-success" role="alert">
         Update Success !
     </div>
     <div *ngIf="!isUpdated" class="alert alert-danger" role="alert">
         Failed to update !
     </div>
-  <form class="card medium sticky-action z-depth-1 row" [formGroup]="form">
+  </div>
+
+  <form class="card medium sticky-action form" [formGroup]="form">
     <input hidden formControlName="id" value="{{form.value.id}}">
 
     <div class="card-content">
