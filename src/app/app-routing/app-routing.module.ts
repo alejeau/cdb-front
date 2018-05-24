@@ -2,22 +2,22 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {CompaniesComponent} from '../companies/companies.component';
-import {AddCompanyComponent} from '../add-company/add-company.component';
+import {AddCompanyComponent} from '../company/add-company/add-company.component';
 
 const routes: Routes = [
   {
-    path: 'cdb-company',
+    path: 'company',
     component: CompaniesComponent,
     pathMatch: 'full'
   },
   {
-    path: 'cdb-company/add',
+    path: 'company/add',
     component: AddCompanyComponent,
     pathMatch: 'full'
   },
   {
     path: '**',
-    redirectTo: 'cdb-company',
+    redirectTo: 'company',
     pathMatch: 'full'
   }
 ];

@@ -1,5 +1,7 @@
 <div class="container">
   <h1>Add new company</h1>
+  <div *ngIf="errorMessage">{{errorMessage}}</div>
+  <div *ngIf="successMessage">{{successMessage}}</div>
   <form [formGroup]="addForm" >
     <div class="form-group">
       <label for="name">Company Name: </label>

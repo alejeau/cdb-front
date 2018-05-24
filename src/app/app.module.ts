@@ -13,7 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FooterComponent} from './footer/footer.component';
-import {AddCompanyComponent} from './add-company/add-company.component';
+import {AddCompanyComponent} from './company/add-company/add-company.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {RouterModule} from '@angular/router';
 
