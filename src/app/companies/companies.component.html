@@ -30,7 +30,7 @@
         </div>
       </ng-template>
       <ng-template #loaded>
-          <app-company *ngFor="let company of companiesToPrint" [company]="company" (deleteEvent)="delete($event)"></app-company>
+          <app-company *ngFor="let company of companiesToPrint" [company]="company" [searching]="searching" (deleteEvent)="delete($event)"></app-company>
       </ng-template>
   </div>
 </div>
