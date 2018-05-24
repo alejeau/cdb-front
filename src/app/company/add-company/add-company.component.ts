@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CompanyService} from '../../company.service';
 import {Company} from '../../company.model';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-company',
@@ -16,7 +16,8 @@ export class AddCompanyComponent implements OnInit {
   successMessage: string;
   addForm: FormGroup;
 
-  constructor(private companyService: CompanyService, private fb: FormBuilder, private router: Router) { }
+  constructor(private companyService: CompanyService, private fb: FormBuilder, private router: Router) {
+  }
 
   ngOnInit() {
     this.createForm();
@@ -24,7 +25,7 @@ export class AddCompanyComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['/company']);
+    this.router.navigate(['/company']).catch().then();
   }
 
   addCompany(): void {
@@ -33,6 +34,7 @@ export class AddCompanyComponent implements OnInit {
       const company = new Company();
       company.name = this.addForm.controls.name.value;
       company.pictureUrl = this.addForm.controls.url.value;
+      company.description = this.addForm.controls.description.value;
 
       console.log('company: ', company);
 
@@ -40,9 +42,9 @@ export class AddCompanyComponent implements OnInit {
         () => {
           this.successMessage = 'The company has been added!';
           this.startTimeOut(this.successMessage);
-          this.router.navigate(['/company']);
+          this.router.navigate(['/company']).catch().then();
         },
-        errors => {
+        () => {
           this.errorMessage = 'There were errors while adding the company. Please try again.';
           this.startTimeOut(this.errorMessage);
         }
@@ -54,19 +56,15 @@ export class AddCompanyComponent implements OnInit {
     const urlPattern = '^https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)$';
     this.addForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
-      url: ['', Validators.pattern(urlPattern)]
-    });
-  }
-
-  rebuildForm() {
-    this.addForm.reset({
-      name: '',
-      url: ''
+      url: ['', Validators.pattern(urlPattern)],
+      description: ['', Validators.maxLength(255)]
     });
   }
 
   startTimeOut(item: any): void {
-    setTimeout(() => { item = null; }, 5000);
+    setTimeout(() => {
+      item = null;
+    }, 5000);
   }
 
 }
