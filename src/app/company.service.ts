@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CompanyService {
 
-  private baseUrl = 'http://10.0.1.206:8080/computer-database-webservice/';
+  private baseUrl = "http://10.0.1.124:8080/computer-database-webservice";
+  // private baseUrl = 'http://10.0.1.206:8080/computer-database-webservice/';
 
   constructor(private http: HttpClient) {
   }
@@ -27,10 +28,15 @@ export class CompanyService {
 
   updateCompany(company: Company): Observable<any> {
     return this.http.put<Company>(this.baseUrl + '/companies/', company);
+    // return new Observable<any>();
   }
 
   deleteCompany(id: string): Observable<any> {
     return this.http.delete<any>(this.baseUrl + '/companies/' + id);
+  }
+
+  isJoinable() {
+
   }
 
 }
