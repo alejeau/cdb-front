@@ -18,6 +18,9 @@ export class CompanyUpdateComponent implements OnInit {
   form: FormGroup;
   isUpdated: boolean = true;
   isSubmitted: boolean = false;
+  countClick: number;
+  clientX: number = 0;
+  clientY:number = 0;
 
   initForm() {
     this.form = this.fb.group({
@@ -67,5 +70,11 @@ export class CompanyUpdateComponent implements OnInit {
       () => {this.isUpdated = true; console.log('Company updated !', this.company)},
       (error: any) => {this.isUpdated = false; console.error('Error in company update', error)});
     this.router.navigate(['update/' + this.company.id ]).then((value: boolean) => value ? console.log('redirect...') : console.log('stand'));
+  }
+
+  registerClick(event: any) {
+    this.countClick += 1;
+    this.clientX = event.clientX;
+    this.clientY = event.clientY;
   }
 }
