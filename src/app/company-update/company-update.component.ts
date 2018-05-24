@@ -16,6 +16,7 @@ export class CompanyUpdateComponent implements OnInit {
   // Ici on récupère la company selon l'id via le service
   company: Company = new Company();
   form: FormGroup;
+  isUpdated: boolean = true;
 
   initForm() {
     this.form = this.fb.group({
@@ -31,13 +32,13 @@ export class CompanyUpdateComponent implements OnInit {
     this.redirect();
   }
 
+  // trick the Router into believing it's last link wasn't previously loaded
+  // if you need to scroll back to top, here is the right place
   redirect() {
     this.router.routeReuseStrategy.shouldReuseRoute = function() {return false;};
     this.router.events.subscribe((evt) => {
       if (evt instanceof NavigationEnd) {
-        // trick the Router into believing it's last link wasn't previously loaded
         this.router.navigated = false;
-        // if you need to scroll back to top, here is the right place
         window.scrollTo(0, 0);
       }
     });
@@ -59,13 +60,11 @@ export class CompanyUpdateComponent implements OnInit {
   }
 
   submit() {
-
-    console.log('Submit:Form', this.form);
     this.company = <Company>this.form.value;
-    console.log('Submit:Company', this.company);
-
-    // Service.update().subscribe(() => console.log('Updated !'));
-    this.router.navigate(['update/' + this.company.id ]).then((value: boolean) => value ? console.log('true') : console.log('false'));
+    this.companyService.updateCompany(this.company).subscribe(
+      () => {this.isUpdated = true; console.log('Updated !', this.company)},
+      (error: any) => {this.isUpdated = false; console.error('Failed to update company', error)});
+    this.router.navigate(['update/' + this.company.id ]).then((value: boolean) => value ? console.log('redirect...') : console.log('stand'));
   }
 
 }
