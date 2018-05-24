@@ -14,6 +14,7 @@ export class CompaniesComponent implements OnInit {
   companies: Company[];
   companiesToPrint: Company[];
   @Input() searchTerm;
+  searching = false;
 
   constructor(private companyService: CompanyService) { }
 
@@ -36,10 +37,11 @@ export class CompaniesComponent implements OnInit {
 
   search(searchTerm: string) {
     this.companiesToPrint = this.companies.filter((company) => company.name.toLowerCase().startsWith(searchTerm.toLocaleLowerCase()));
+    this.searching = this.companies.length === this.companiesToPrint.length;
   }
 
   delete(id: number) {
-    this.companies.splice(this.companies.findIndex(c => c.id === id));
+    this.companies.splice(this.companies.findIndex(c => c.id === id), 1);
     this.companiesToPrint = this.companies;
   }
 
