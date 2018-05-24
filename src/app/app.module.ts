@@ -6,14 +6,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
-import { CompanyService } from "./company.service";
-import { CompaniesComponent } from './companies/companies.component';
+import { CompanyComponent } from './company/company.component';
+import { CompanyService } from './company.service';
 import { HttpClientModule } from '@angular/common/http';
-
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
-import {AppRoutingModule} from "./app-routing/app-routing.module";
-import {CompanyModule} from "./company/company.module";
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { RouterModule } from '@angular/router';
+import { CompanyModule } from './company/company.module';
+
 
 @NgModule({
   declarations: [
@@ -33,10 +34,11 @@ import {CompanyModule} from "./company/company.module";
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    RouterModule,
     CompanyModule
   ],
   exports: [
-    CompaniesComponent
   ],
   providers: [CompanyService],
   bootstrap: [
