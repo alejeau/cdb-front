@@ -35,8 +35,4 @@ export class CompanyService {
     return this.http.delete<any>(this.baseUrl + '/companies/' + id);
   }
 
-  isJoinable() {
-
-  }
-
 }
