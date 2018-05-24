@@ -23,8 +23,8 @@ export class CompanyUpdateComponent implements OnInit {
     this.form = this.fb.group({
       id: '',
       name: ['', {validators: [Validators.required]}],
-      des: '',
-      logo: ''
+      description: '',
+      pictureUrl: ''
     });
   }
 
@@ -54,8 +54,8 @@ export class CompanyUpdateComponent implements OnInit {
         this.form.patchValue(
           { id: this.company.id,
             name: this.company.name,
-            des:  this.company.description,
-            logo: this.company.pictureUrl
+            description:  this.company.description,
+            pictureUrl: this.company.pictureUrl
           }); },
       (error: any) => console.error('Company not found', error));
   }
