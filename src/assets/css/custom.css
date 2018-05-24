@@ -18,3 +18,57 @@ app-root {
 main {
   flex: 1 0 auto;
 }
+
+
+/* valid color */
+input[type=text].ng-valid.ng-touched {
+  border-bottom: 1px solid #3b3;
+}
+/* invalid color */
+input[type=text].ng-invalid.ng-touched {
+  border-bottom: 2px dotted #f00;
+}
+/* icon prefix focus color */
+.prefix.active {
+  color: #000;
+}
+
+/* label invalid color */
+.input-field input[type=text].ng-invalid.ng-touched + label {
+  color: #f00;
+}
+
+/* label valid color */
+.input-field input[type=text].ng-valid.ng-touched + label {
+  color: #3b3;
+}
+
+.form-buttons-bottom {
+  margin: 15px 0;
+}
+
+.error-message {
+  margin-bottom: 30px;
+  min-height: 5rem;
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.error-message i.material-icons {
+  float: left;
+}
+
+.error-message div {
+  display: table;
+}
+
+.error-message div div {
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.error-message div div.icon {
+  padding-right: 10px;
+}

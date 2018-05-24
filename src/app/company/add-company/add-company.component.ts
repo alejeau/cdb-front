@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CompanyService} from '../../company.service';
 import {Company} from '../../company.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-company',
@@ -15,32 +16,38 @@ export class AddCompanyComponent implements OnInit {
   successMessage: string;
   addForm: FormGroup;
 
-  constructor(private companyService: CompanyService, private fb: FormBuilder) { }
+  constructor(private companyService: CompanyService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.createForm();
     this.success = false;
   }
 
+  cancel() {
+    this.router.navigate(['/company']);
+  }
+
   addCompany(): void {
-    console.log('addCompany');
-    const company = new Company();
-    company.name = this.addForm.controls.name.value;
-    company.pictureUrl = this.addForm.controls.url.value;
+    if (this.addForm.status.toLowerCase() === 'valid') {
+      console.log('addCompany');
+      const company = new Company();
+      company.name = this.addForm.controls.name.value;
+      company.pictureUrl = this.addForm.controls.url.value;
 
-    console.log('company: ', company);
+      console.log('company: ', company);
 
-    this.companyService.addCompany(company).subscribe(
-      () => {
-        this.successMessage = 'The company has been added!';
-        this.startTimeOut(this.successMessage);
-        this.rebuildForm();
-      },
-      errors => {
-        this.errorMessage = 'There were errors while adding the company: ' + errors;
-        this.startTimeOut(this.errorMessage);
-      }
-    );
+      this.companyService.addCompany(company).subscribe(
+        () => {
+          this.successMessage = 'The company has been added!';
+          this.startTimeOut(this.successMessage);
+          this.router.navigate(['/company']);
+        },
+        errors => {
+          this.errorMessage = 'There were errors while adding the company. Please try again.';
+          this.startTimeOut(this.errorMessage);
+        }
+      );
+    }
   }
 
   createForm() {
