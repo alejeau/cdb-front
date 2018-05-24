@@ -9,8 +9,8 @@ import {CompanyComponent} from "./company.component";
 @NgModule({
   declarations: [
     CompanyComponent,
+    CompanyUpdateComponent,
     CompaniesComponent,
-    CompanyUpdateComponent
   ],
 
   imports: [
@@ -21,7 +21,9 @@ import {CompanyComponent} from "./company.component";
   ],
 
   exports: [
-    CompanyUpdateComponent
+    CompanyComponent,
+    CompaniesComponent,
+    CompanyUpdateComponent,
   ]
 })
 export class CompanyModule { }
