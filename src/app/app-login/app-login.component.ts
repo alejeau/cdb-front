@@ -28,7 +28,7 @@ export class AppLoginComponent implements OnInit {
   }
 
   setMessage() {
-    this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
+    this.message = 'Logged ' + (this.authService.isLoggedIn() ? 'in' : 'out');
   }
 
   createForm() {
@@ -43,12 +43,16 @@ export class AppLoginComponent implements OnInit {
     this.password = this.loginForm.get('password').value;
     this.router.navigate([this.authService.redirectUrl]);
     this.message = 'Trying to log in ...';
-    this.authService.login(this.username, this.password).subscribe(() => {
-      this.setMessage();
-      if (this.authService.isLoggedIn) {
+    this.authService.login(this.username, this.password).subscribe(
+      ((token: string) => {
+        this.setMessage();
+        console.log('Token received : ' + token);
+        localStorage.setItem('token', token);
+        console.log('Storing token in local Storage');
+        console.log(localStorage.getItem('token'));
         this.router.navigate([this.authService.redirectUrl]);
-      }
-    });
+      }))
+    //(error) => this.message = 'Wrong username/password');
   }
 
   logout() {
