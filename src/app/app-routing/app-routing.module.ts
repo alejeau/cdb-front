@@ -7,6 +7,7 @@ import { CompanyAddComponent } from '../company/company-add/company-add.componen
 import { ComputerUpdateComponent } from '../computer/computer-update/computer-update.component';
 import { ComputersComponent } from '../computers/computers.component';
 import { ComputerAddComponent } from '../computer/computer-add/computer-add.component';
+import { IndexComponent } from '../index/index.component';
 
 const routes: Routes = [
   {
@@ -41,7 +42,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'company',
+    component: IndexComponent,
     pathMatch: 'full'
   }
 ];
