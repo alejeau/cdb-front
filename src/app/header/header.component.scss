@@ -1,0 +1,22 @@
+.vertical-sep {
+  background-color:  #eeeeee;
+  height:100%;
+  width:2px;
+}
+
+
+.dropdown-content {
+  background-color: #0277bd;
+}
+
+.dropdown-content li > a {
+  color:white;
+}
+
+.dropdown-content li:hover {
+  background-color: #0869a1;
+}
+
+.dropdown-content li > a:hover {
+  background-color: #0869a1;
+}

@@ -13,17 +13,10 @@ export class ComputerComponent implements OnInit {
   @Input() computer: Computer;
   @Output() deleteEvent = new EventEmitter<number>();
   show: boolean;
-  @Input() searching = false;
 
   constructor(private computerService: ComputerService) { }
 
   ngOnInit() {
-    if (this.searching) {
-      this.show = true;
-    } else {
-      this.show = false;
-      interval(1).subscribe(() => this.show = true);
-    }
   }
 
   delete() {

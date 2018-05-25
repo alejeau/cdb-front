@@ -5,7 +5,7 @@
         <div class="col s12 m6">
           <form>
             <div class="input-field" >
-              <input id="search" type="search" name="searchTerm" required (ngModelChange)="search($event)" [(ngModel)]="searchTerm">
+              <input id="search" type="search" name="searchTerm" placeholder="Computer name" required (ngModelChange)="search($event)" [(ngModel)]="searchTerm">
               <label class="label-icon" for="search"><i class="material-icons">search</i></label>
               <i class="material-icons">close</i>
             </div>
@@ -14,8 +14,9 @@
         <div class="col s12 m6">
           <form>
             <div class="select-field">
-              <select id="search" type="search" name="searchTerm">
-                <option>Companies</option>
+              <select id="search" type="search" name="searchTerm" (ngModelChange)="filterByCompany($event)" [(ngModel)]="companyName">
+                <option value="">All companies</option>
+                <option *ngFor="let company of companies" value="{{ company.name }}">{{ company.name }}</option>
               </select>
             </div>
           </form>
@@ -43,7 +44,7 @@
         </div>
       </ng-template>
       <ng-template #loaded>
-          <app-computer *ngFor="let computer of computersToPrint" [computer]="computer" [searching]="searching" (deleteEvent)="delete($event)"></app-computer>
+          <app-computer *ngFor="let computer of computersToPrint" [computer]="computer" (deleteEvent)="delete($event)"></app-computer>
       </ng-template>
   </div>
 </div>
