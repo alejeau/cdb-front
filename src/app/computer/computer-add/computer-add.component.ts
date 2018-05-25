@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ComputerService} from '../../computer.service';
-import {Computer} from '../../computer.model';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ComputerService } from '../../computer.service';
+import { Computer } from '../../computer.model';
+import { Router } from '@angular/router';
 import { CompanyService } from '../../company.service';
 import { Company } from '../../company.model';
 
