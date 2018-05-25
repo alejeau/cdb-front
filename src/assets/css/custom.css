@@ -22,6 +22,7 @@ main {
 
 /* companies */
 .input-field input[type="search"] {
+  width: calc(100% - 45px);
   padding-left:45px;
   color:#efefef;
 }

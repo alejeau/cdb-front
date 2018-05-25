@@ -39,9 +39,9 @@ export class CompanyUpdateComponent implements OnInit {
     const urlPattern = '^https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)$';
     this.updateForm = this.fb.group({
       id: '',
-      name: [[Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
-      url: [Validators.pattern(urlPattern)],
-      description: [Validators.maxLength(255)]
+      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
+      pictureUrl: ['', Validators.pattern(urlPattern)],
+      description: ['', Validators.maxLength(255)]
     });
   }
 
