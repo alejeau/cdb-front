@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-
 import { HeaderComponent } from './header/header.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
@@ -20,9 +20,9 @@ import { RouterModule } from '@angular/router';
 import { CompanyModule } from './company/company.module';
 import { ComputerModule } from './computer/computer.module';
 import { IndexComponent } from './index/index.component';
-import {AppLoginComponent} from './app-login/app-login.component';
-import { AppLogoutComponent } from './app-logout/app-logout.component';
-import {HttpClientModule} from '@angular/common/http';
+import {TokenInterceptor} from '../token-interceptor';
+import {AppLoginComponent} from './login/app-login.component';
+import {AppLogoutComponent} from './logout/app-logout.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,12 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   providers: [
     CompanyService,
-    ComputerService
+    ComputerService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [
     AppComponent,

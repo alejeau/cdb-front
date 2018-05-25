@@ -43,7 +43,6 @@ const routes: Routes = [
     component: ComputerAddComponent,
     pathMatch: 'full'
   },
-
   {
     path: 'login',
     component : AppLoginComponent,
