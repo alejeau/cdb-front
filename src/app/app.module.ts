@@ -22,6 +22,7 @@ import { ComputerModule } from './computer/computer.module';
 import { IndexComponent } from './index/index.component';
 import {AppLoginComponent} from './app-login/app-login.component';
 import { AppLogoutComponent } from './app-logout/app-logout.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { AppLogoutComponent } from './app-logout/app-logout.component';
     FooterComponent,
     IndexComponent,
     AppLoginComponent,
-    AppLogoutComponent
+    AppLogoutComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -54,6 +55,7 @@ import { AppLogoutComponent } from './app-logout/app-logout.component';
     RouterModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [
     CompanyService,
