@@ -1,0 +1,34 @@
+<div class="container row">
+  <h1>Update company <em>"{{ company.name }}"</em></h1>
+  <div *ngIf="errorMessage" class="card-panel red lighten-2 error-message">
+    <div>
+      <div class="icon"><i class="medium material-icons">error</i></div>
+      <div>{{errorMessage}}</div>
+    </div>
+  </div>
+
+  <form [formGroup]="updateForm">
+    <input hidden formControlName="id" value="{{ updateForm.value?.id }}">
+
+    <div class="form-group input-field">
+      <input name="name" type="text" class="form-control" id="name" formControlName="name" value="{{ updateForm.value?.name }}" required>
+      <label for="name">Company Name:</label>
+    </div>
+
+    <div class="form-group input-field">
+      <input name="logo" type="text" class="form-control" id="logo" formControlName="pictureUrl" value="{{ updateForm.value?.pictureUrl }}">
+      <label for="logo">Logo link:</label>
+    </div>
+
+    <div class="form-group input-field">
+      <textarea name="description" type="text" class="materialize-textarea form-control" id="description" formControlName="description" maxlength="255" value="{{ updateForm.value?.description }}"></textarea>
+      <label for="description">Company description:</label>
+    </div>
+
+    <div class="form-buttons-bottom">
+      <a class="btn red waves-effect waves-light" (click)="cancel()">Cancel</a>
+      &nbsp;
+      <button class="btn waves-effect waves-light" (click)="updateCompany()" [disabled]="updateForm.invalid">Update company</button>
+    </div>
+  </form>
+</div>
