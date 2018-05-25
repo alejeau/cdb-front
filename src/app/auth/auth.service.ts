@@ -21,6 +21,11 @@ export class AuthService {
     return this.http.post(this.baseUrl + 'login', body, { headers: headers, responseType: 'text' });
   }
 
+  getComputer(): Observable<number> {
+    return this.http.get<number>(this.baseUrl + 'computers/total');
+
+  }
+
   logout(): void {
     console.log('AuthService logout removing token from localStorage');
     localStorage.removeItem('token');
@@ -32,7 +37,7 @@ export class AuthService {
     return !(localStorage.getItem('token') === null);
   }
 
-  getToken(): string{
+  getToken(): string {
     return (localStorage.getItem('token'));
   }
 }

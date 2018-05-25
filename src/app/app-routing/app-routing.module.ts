@@ -8,6 +8,9 @@ import { ComputerUpdateComponent } from '../computer/computer-update/computer-up
 import { ComputersComponent } from '../computers/computers.component';
 import { ComputerAddComponent } from '../computer/computer-add/computer-add.component';
 import { IndexComponent } from '../index/index.component';
+import {AppLoginComponent} from '../login/app-login.component';
+import {AuthGuard} from '../auth/auth-guard.service';
+import {AppLogoutComponent} from '../logout/app-logout.component';
 
 const routes: Routes = [
   {
@@ -40,11 +43,19 @@ const routes: Routes = [
     component: ComputerAddComponent,
     pathMatch: 'full'
   },
+
   {
-    path: '**',
-    component: IndexComponent,
+    path: 'login',
+    component : AppLoginComponent,
     pathMatch: 'full'
-  }
+  },
+  {
+    path : 'logout',
+    component : AppLogoutComponent,
+    pathMatch : 'full',
+    canActivate : [AuthGuard]
+  },
+
 ];
 
 @NgModule({
