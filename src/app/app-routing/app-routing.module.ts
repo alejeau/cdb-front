@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { CompanyUpdateComponent } from '../company/company-update/company-update.component';
 import { CompaniesComponent } from '../companies/companies.component';
 import { CompanyAddComponent } from '../company/company-add/company-add.component';
+import { ComputerUpdateComponent } from '../computer/computer-update/computer-update.component';
+import { ComputersComponent } from '../computers/computers.component';
+import { ComputerAddComponent } from '../computer/computer-add/computer-add.component';
 
 const routes: Routes = [
   {
@@ -19,6 +22,21 @@ const routes: Routes = [
   {
     path: 'company/add',
     component: CompanyAddComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'computer',
+    component: ComputersComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'computer/update/:id',
+    component: ComputerUpdateComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'computer/add',
+    component: ComputerAddComponent,
     pathMatch: 'full'
   },
   {

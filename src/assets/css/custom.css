@@ -130,3 +130,21 @@ input[type=text].ng-invalid.ng-touched {
 .error-message div div.icon {
   padding-right: 10px;
 }
+
+
+
+
+/* computers */
+.select-field select {
+  background-color: #0277bd;
+  color:#efefef;
+  display: block;
+}
+
+.select-field select:focus {
+  background-color: #198dd1;
+}
+
+header + .container {
+  margin-top:20px;
+}
