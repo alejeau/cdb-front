@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ComputerService} from '../../computer.service';
 import {Computer} from '../../computer.model';
 import {Router} from '@angular/router';
+import { CompanyService } from '../../company.service';
+import { Company } from '../../company.model';
 
 @Component({
   selector: 'app-computer-add',
@@ -13,12 +15,21 @@ export class ComputerAddComponent implements OnInit {
 
   errorMessage: string;
   addForm: FormGroup;
+  companies: Company[];
 
-  constructor(private computerService: ComputerService, private fb: FormBuilder, private router: Router) {
+  constructor(private computerService: ComputerService, private companyService: CompanyService,
+              private fb: FormBuilder, private router: Router) {
   }
 
   ngOnInit() {
     this.createForm();
+
+    this.companyService.getCompanies()
+          .subscribe(
+            companiesReceived => this.companies = companiesReceived,
+            error => console.error('Error while getting companies list from API', error),
+            () => console.log('Companies list successfully received')
+          );
   }
 
   cancel() {

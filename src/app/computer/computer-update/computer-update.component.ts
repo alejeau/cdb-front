@@ -4,6 +4,8 @@ import {FormBuilder, FormGroup , Validators, FormControl} from '@angular/forms';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {ComputerService} from '../../computer.service';
 import {noop} from 'rxjs/internal-compatibility';
+import { CompanyService } from '../../company.service';
+import { Company } from '../../company.model';
 
 @Component({
   selector: 'app-computer-update',
@@ -14,10 +16,12 @@ import {noop} from 'rxjs/internal-compatibility';
 export class ComputerUpdateComponent implements OnInit {
 
   computer: Computer = new Computer();
+  companies: Company[];
   updateForm: FormGroup;
   errorMessage: string;
 
-  constructor(private computerService: ComputerService, private route: ActivatedRoute, private fb: FormBuilder, private router: Router) {
+  constructor(private computerService: ComputerService, private companyService: CompanyService,
+              private route: ActivatedRoute, private fb: FormBuilder, private router: Router) {
     this.createForm();
   }
 
@@ -27,6 +31,13 @@ export class ComputerUpdateComponent implements OnInit {
           .subscribe(
             (value: Computer) => this.setup(value),
             (error: any) => console.error('Computer not found', error)
+          );
+
+    this.companyService.getCompanies()
+          .subscribe(
+            companiesReceived => this.companies = companiesReceived,
+            error => console.error('Error while getting companies list from API', error),
+            () => console.log('Companies list successfully received')
           );
   }
 
