@@ -8,9 +8,9 @@ import { ComputerUpdateComponent } from '../computer/computer-update/computer-up
 import { ComputersComponent } from '../computers/computers.component';
 import { ComputerAddComponent } from '../computer/computer-add/computer-add.component';
 import { IndexComponent } from '../index/index.component';
-import {AppLoginComponent} from '../login/app-login.component';
-import {AuthGuard} from '../auth/auth-guard.service';
-import {AppLogoutComponent} from '../logout/app-logout.component';
+import { AppLoginComponent } from '../login/app-login.component';
+import { AuthGuard } from '../auth/auth-guard.service';
+import { AppLogoutComponent } from '../logout/app-logout.component';
 
 const routes: Routes = [
   {
@@ -18,49 +18,41 @@ const routes: Routes = [
     component: CompaniesComponent,
     pathMatch: 'full',
     canActivate : [AuthGuard]
-
   },
   {
     path: 'company/update/:id',
     component: CompanyUpdateComponent,
     pathMatch: 'full',
     canActivate : [AuthGuard]
-
   },
   {
     path: 'company/add',
     component: CompanyAddComponent,
     pathMatch: 'full',
     canActivate : [AuthGuard]
-
   },
   {
     path: 'computer',
     component: ComputersComponent,
     pathMatch: 'full',
     canActivate : [AuthGuard]
-
   },
   {
     path: 'computer/update/:id',
     component: ComputerUpdateComponent,
     pathMatch: 'full',
     canActivate : [AuthGuard]
-
   },
   {
     path: 'computer/add',
     component: ComputerAddComponent,
     pathMatch: 'full',
     canActivate : [AuthGuard]
-
-
   },
   {
     path: 'login',
     component : AppLoginComponent,
     pathMatch: 'full'
-
   },
   {
     path : 'logout',
@@ -74,7 +66,6 @@ const routes: Routes = [
     pathMatch: 'full',
     canActivate : [AuthGuard]
   }
-
 ];
 
 @NgModule({
@@ -87,4 +78,4 @@ const routes: Routes = [
   ],
   declarations: []
 })
-export class RoutingModule { }
+export class AppRoutingModule { }

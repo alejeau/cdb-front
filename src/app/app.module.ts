@@ -15,14 +15,14 @@ import { ComputerService } from './computer.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
-import { RoutingModule } from './routing/routing.module';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 import { RouterModule } from '@angular/router';
 import { CompanyModule } from './company/company.module';
 import { ComputerModule } from './computer/computer.module';
 import { IndexComponent } from './index/index.component';
-import {TokenInterceptor} from '../token-interceptor';
-import {AppLoginComponent} from './login/app-login.component';
-import {AppLogoutComponent} from './logout/app-logout.component';
+import { TokenInterceptor } from '../token-interceptor';
+import { AppLoginComponent } from './login/app-login.component';
+import { AppLogoutComponent } from './logout/app-logout.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,7 @@ import {AppLogoutComponent} from './logout/app-logout.component';
     MatListModule,
     HttpClientModule,
     FormsModule,
-    RoutingModule,
+    AppRoutingModule,
     ReactiveFormsModule,
     RouterModule,
     CompanyModule,
@@ -53,7 +53,7 @@ import {AppLogoutComponent} from './logout/app-logout.component';
   exports: [
     FormsModule,
     RouterModule,
-    RoutingModule,
+    AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
   ],

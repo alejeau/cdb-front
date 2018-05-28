@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {Computer} from '../../computer.model';
-import {FormBuilder, FormGroup , Validators, FormControl} from '@angular/forms';
-import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
-import {ComputerService} from '../../computer.service';
-import {noop} from 'rxjs/internal-compatibility';
+import { Component, OnInit } from '@angular/core';
+import { Computer } from '../../computer.model';
+import { FormBuilder, FormGroup , Validators, FormControl } from '@angular/forms';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ComputerService } from '../../computer.service';
+import { noop } from 'rxjs/internal-compatibility';
 import { CompanyService } from '../../company.service';
 import { Company } from '../../company.model';
 
