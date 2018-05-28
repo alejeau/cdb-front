@@ -10,6 +10,7 @@ export class AuthService {
 
   baseUrl = 'http://localhost:8080/computer-database-webservice/';
 
+  logoutSuccess = 'true';
 
   constructor(private http: HttpClient) {}
 
@@ -22,6 +23,7 @@ export class AuthService {
   }
 
   logout(): void {
+    this.logoutSuccess = 'true';
     console.log('AuthService logout removing token from localStorage');
     localStorage.removeItem('token');
   }

@@ -1,10 +1,19 @@
 <div class="container">
-  <div *ngIf="message" class="card-panel red lighten-2 error-message">
-    <div>
-      <div class="icon"><i class="medium material-icons">error</i></div>
-      <div>{{ message }}</div>
+  <div *ngIf="message">
+    <div *ngIf="error; else success" >
+      <div class="card-panel red lighten-2 error-message">
+        <div class="icon"><i class="medium material-icons">error</i></div>
+        <div>{{ message }}</div>
+      </div>
     </div>
-  </div>
+
+    <ng-template #success>
+     <div class="card-panel green lighten-2 success-message">
+       <div class="icon"><i class="medium material-icons">error</i></div>
+       <div>{{ message }}</div>
+     </div>
+    </ng-template>
+</div>
 
   <form [formGroup]="loginForm" (ngSubmit)="login()" #form="ngForm">
 
