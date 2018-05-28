@@ -51,8 +51,10 @@ export class AppLoginComponent implements OnInit {
         console.log('Storing token in local Storage');
         console.log(localStorage.getItem('token'));
         this.router.navigate([this.authService.redirectUrl]);
-      }))
-    //(error) => this.message = 'Wrong username/password');
+      }),
+      (error) => {
+        this.message = 'Wrong username/password'
+      });
   }
 
   logout() {

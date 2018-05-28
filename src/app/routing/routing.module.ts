@@ -16,37 +16,51 @@ const routes: Routes = [
   {
     path: 'company',
     component: CompaniesComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate : [AuthGuard]
+
   },
   {
     path: 'company/update/:id',
     component: CompanyUpdateComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate : [AuthGuard]
+
   },
   {
     path: 'company/add',
     component: CompanyAddComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate : [AuthGuard]
+
   },
   {
     path: 'computer',
     component: ComputersComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate : [AuthGuard]
+
   },
   {
     path: 'computer/update/:id',
     component: ComputerUpdateComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate : [AuthGuard]
+
   },
   {
     path: 'computer/add',
     component: ComputerAddComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate : [AuthGuard]
+
+
   },
   {
     path: 'login',
     component : AppLoginComponent,
     pathMatch: 'full'
+
   },
   {
     path : 'logout',
@@ -54,6 +68,12 @@ const routes: Routes = [
     pathMatch : 'full',
     canActivate : [AuthGuard]
   },
+  {
+    path: '**',
+    component: IndexComponent,
+    pathMatch: 'full',
+    canActivate : [AuthGuard]
+  }
 
 ];
 
@@ -67,4 +87,4 @@ const routes: Routes = [
   ],
   declarations: []
 })
-export class AppRoutingModule { }
+export class RoutingModule { }

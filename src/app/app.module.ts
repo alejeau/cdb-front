@@ -15,7 +15,7 @@ import { ComputerService } from './computer.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
-import { AppRoutingModule } from './app-routing/app-routing.module';
+import { RoutingModule } from './routing/routing.module';
 import { RouterModule } from '@angular/router';
 import { CompanyModule } from './company/company.module';
 import { ComputerModule } from './computer/computer.module';
@@ -44,7 +44,7 @@ import {AppLogoutComponent} from './logout/app-logout.component';
     MatListModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule,
+    RoutingModule,
     ReactiveFormsModule,
     RouterModule,
     CompanyModule,
@@ -53,7 +53,7 @@ import {AppLogoutComponent} from './logout/app-logout.component';
   exports: [
     FormsModule,
     RouterModule,
-    AppRoutingModule,
+    RoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
   ],
