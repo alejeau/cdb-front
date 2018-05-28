@@ -13,6 +13,7 @@ export class AppLoginComponent implements OnInit {
   message: string;
   username: string;
   password: string;
+  error: boolean;
   loginForm: FormGroup;
 
   constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) {
@@ -22,14 +23,19 @@ export class AppLoginComponent implements OnInit {
     });
   }
 
+  setMessage(msg) {
+    this.message = msg;
+  }
   ngOnInit() {
-    this.setMessage();
+    this.setDefaultMessage();
     this.createForm();
   }
 
-  setMessage() {
+  setDefaultMessage() {
     this.message = 'Logged ' + (this.authService.isLoggedIn() ? 'in' : 'out');
   }
+
+
 
   createForm() {
     this.loginForm = this.fb.group({
@@ -45,22 +51,27 @@ export class AppLoginComponent implements OnInit {
     this.message = 'Trying to log in ...';
     this.authService.login(this.username, this.password).subscribe(
       ((token: string) => {
-        this.setMessage();
+        this.setDefaultMessage();
         console.log('Token received : ' + token);
         localStorage.setItem('token', token);
         console.log('Storing token in local Storage');
         console.log(localStorage.getItem('token'));
         this.router.navigate([this.authService.redirectUrl]);
+        this.error = false;
       }),
       (error) => {
-        this.message = 'Wrong username/password'
+        this.message = 'Wrong username/password';
+        this.error = true;
       });
   }
 
-  logout() {
+  /*logout() {
     this.authService.logout();
-    this.setMessage();
-  }
+    this.message = 'Succesfully logged out';
+    this.error = false;
+
+    //this.setMessageSuccesLogout();
+  }*/
 
 
 
