@@ -47,11 +47,13 @@ export class ComputerUpdateComponent implements OnInit {
   }
 
   createForm() {
+    const datePattern = '^([0-9]{4}\\-[0-9]{2}\\-[0-9]{2})?$';
+
     this.updateForm = this.fb.group({
       id: '',
       name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
-      introduced: '',
-      discontinued: '',
+      introduced: ['', Validators.pattern(datePattern)],
+      discontinued: ['', Validators.pattern(datePattern)],
       companyId: ''
     });
   }

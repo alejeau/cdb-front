@@ -78,12 +78,14 @@ header + .container {
 
 /* add/update forms */
   /* valid color */
-input[type=text].ng-valid.ng-touched {
+input[type=text].ng-valid.ng-touched,
+input[type=date].ng-valid.ng-touched {
   border-bottom: 1px solid #3b3;
 }
 
   /* invalid color */
 input[type=text].ng-invalid.ng-touched,
+input[type=date].ng-invalid.ng-touched,
 textarea.ng-invalid.ng-touched {
   border-bottom: 2px dotted #f00;
   box-shadow: 0 0 0 0 #f00;
@@ -95,12 +97,14 @@ textarea.ng-invalid.ng-touched {
 
   /* label invalid color */
   .input-field input[type=text].ng-invalid.ng-touched + label,
+  .input-field input[type=date].ng-invalid.ng-touched + label,
   .input-field textarea.ng-invalid.ng-touched + label {
   color: #f00;
 }
 
   /* label valid color */
-.input-field input[type=text].ng-valid.ng-touched + label {
+.input-field input[type=text].ng-valid.ng-touched + label,
+.input-field input[type=date].ng-valid.ng-touched + label {
   color: #3b3;
 }
 
