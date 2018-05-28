@@ -83,8 +83,10 @@ input[type=text].ng-valid.ng-touched {
 }
 
   /* invalid color */
-input[type=text].ng-invalid.ng-touched {
+input[type=text].ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
   border-bottom: 2px dotted #f00;
+  box-shadow: 0 0 0 0 #f00;
 }
   /* icon prefix focus color */
 .prefix.active {
@@ -92,7 +94,8 @@ input[type=text].ng-invalid.ng-touched {
 }
 
   /* label invalid color */
-.input-field input[type=text].ng-invalid.ng-touched + label {
+  .input-field input[type=text].ng-invalid.ng-touched + label,
+  .input-field textarea.ng-invalid.ng-touched + label {
   color: #f00;
 }
 

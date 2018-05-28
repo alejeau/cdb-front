@@ -8,9 +8,18 @@
     </div> -->
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">{{ computer.name }}<i class="material-icons right">close</i></span>
-      <p><strong>Introduction</strong>: {{ computer.introduced }}</p>
-      <p><strong>Discontinuation</strong>: {{ computer.discontinued }}</p>
-      <p><strong>Company</strong>: {{ computer.companyName }}</p>
+      <p><strong>Introduction</strong>:
+        <span *ngIf="computer.introduced">{{ computer.introduced }}</span>
+        <span *ngIf="!computer.introduced">-</span>
+      </p>
+      <p><strong>Discontinuation</strong>:
+        <span *ngIf="computer.discontinued">{{ computer.discontinued }}</span>
+        <span *ngIf="!computer.discontinued">-</span>
+      </p>
+      <p><strong>Company</strong>:
+        <span *ngIf="computer.companyName">{{ computer.companyName }}</span>
+        <span *ngIf="!computer.companyName">-</span>
+      </p>
     </div>
     <div class="card-action ">
         <a href="/computer/update/{{ computer.id }}" class="btn waves-effect waves-light blue lighten-1">Update</a>&nbsp;
