@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CompanyService} from '../../company.service';
 import {Company} from '../../company.model';
 import {Router} from '@angular/router';
+declare var init: any;
 
 @Component({
   selector: 'app-company-add',
@@ -19,6 +20,7 @@ export class CompanyAddComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
+    init();
   }
 
   cancel() {

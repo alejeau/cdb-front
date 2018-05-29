@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup , Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CompanyService} from '../../company.service';
 import {noop} from 'rxjs/internal-compatibility';
+declare var init: any;
 
 @Component({
   selector: 'app-company-update',
@@ -17,6 +18,7 @@ export class CompanyUpdateComponent implements OnInit {
   companiesCount: number = 0;
   updateForm: FormGroup;
   errorMessage: string;
+
 
   constructor(private companyService: CompanyService, private route: ActivatedRoute, private fb: FormBuilder, private router: Router) {
     this.createForm();
@@ -64,6 +66,8 @@ export class CompanyUpdateComponent implements OnInit {
       (error: any) => console.error('Company not found', error),
       () => console.log('Company successfully received')
     );
+
+    init();
   }
 
   setup(value: Company) {

@@ -30,9 +30,15 @@
         });
       }
 
+      function init() {
+        $(document).ready(function(){
+          $(".dropdown-trigger").dropdown();
+          $("textarea#description").characterCounter();
+        });
+      }
+
       $(document).ready(function(){
         $(".dropdown-trigger").dropdown();
-        $("textarea#description").characterCounter();
       });
     </script>
 
