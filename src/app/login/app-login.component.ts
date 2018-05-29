@@ -39,7 +39,7 @@ export class AppLoginComponent implements OnInit {
 
   createForm() {
     this.loginForm = this.fb.group({
-      username: ['', Validators.minLength(2)],
+      username: [''],
       password: ['', Validators.required]
     });
   }
@@ -58,6 +58,11 @@ export class AppLoginComponent implements OnInit {
         console.log(localStorage.getItem('token'));
         this.router.navigate([this.authService.redirectUrl]);
         this.error = false;
+        this.authService.getRole().subscribe(
+          (role_str: string) => {
+            localStorage.setItem('role', role_str);
+            });
+
       }),
       (error) => {
         this.message = 'Wrong username/password';

@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Computer } from '../computer.model';
 import { ComputerService } from '../computer.service';
 import { interval } from 'rxjs';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-computer',
@@ -14,7 +15,7 @@ export class ComputerComponent implements OnInit {
   @Output() deleteEvent = new EventEmitter<number>();
   show: boolean;
 
-  constructor(private computerService: ComputerService) { }
+  constructor(private computerService: ComputerService, private authService: AuthService) { }
 
   ngOnInit() {
   }
