@@ -23,6 +23,7 @@ import { IndexComponent } from './index/index.component';
 import {TokenInterceptor} from '../token-interceptor';
 import {AppLoginComponent} from './login/app-login.component';
 import {AppLogoutComponent} from './logout/app-logout.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {AppLogoutComponent} from './logout/app-logout.component';
     IndexComponent,
     AppLoginComponent,
     AppLogoutComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserAnimationsModule,
