@@ -56,6 +56,9 @@ export class AppLoginComponent implements OnInit {
         localStorage.setItem('token', token);
         console.log('Storing token in local Storage');
         console.log(localStorage.getItem('token'));
+        if (this.authService.redirectUrl.endsWith('logout') || this.authService.redirectUrl.endsWith('login')) {
+          this.authService.redirectUrl = '';
+        }
         this.router.navigate([this.authService.redirectUrl]);
         this.error = false;
         this.authService.getRole().subscribe(
