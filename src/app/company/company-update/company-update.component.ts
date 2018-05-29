@@ -72,14 +72,14 @@ export class CompanyUpdateComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['/company']).catch().then();
+    this.router.navigate(['company']).catch().then();
   }
 
   updateCompany() {
     if (this.updateForm.status.toLowerCase() === 'valid') {
       this.company = <Company> this.updateForm.value;
       this.companyService.updateCompany(this.company).subscribe(
-        () => this.router.navigate(['/company']).catch().then(),
+        () => this.router.navigate(['company']).catch().then(),
         () => this.errorMessage = 'There were errors while updating the company. Please try again.'
       );
     }

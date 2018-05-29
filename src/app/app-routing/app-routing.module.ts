@@ -61,10 +61,15 @@ const routes: Routes = [
     canActivate : [AuthGuard]
   },
   {
-    path: '**',
+    path: 'index',
     component: IndexComponent,
     pathMatch: 'full',
     canActivate : [AuthGuard]
+  },
+  {
+    path: '**',
+    redirectTo: 'index',
+    pathMatch: 'full'
   }
 ];
 

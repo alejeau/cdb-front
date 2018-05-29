@@ -69,14 +69,14 @@ export class ComputerUpdateComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['/computer']).catch().then();
+    this.router.navigate(['computer']).catch().then();
   }
 
   updateComputer() {
     if (this.updateForm.status.toLowerCase() === 'valid') {
       this.computer = <Computer> this.updateForm.value;
       this.computerService.updateComputer(this.computer).subscribe(
-        () => this.router.navigate(['/computer']).catch().then(),
+        () => this.router.navigate(['computer']).catch().then(),
         () => this.errorMessage = 'There were errors while updating the computer. Please try again.'
       );
     }

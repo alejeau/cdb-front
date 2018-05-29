@@ -1,15 +1,11 @@
-import { NgModule } from '@angular/core';
+import {ErrorHandler, Injectable, NgModule} from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,  MatFormField,
-  MatFormFieldModule, MatInputModule
-} from '@angular/material';
-import { CompanyComponent } from './company/company.component';
-import { ComputerComponent } from './computer/computer.component';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule} from '@angular/material';
 import { CompanyService } from './company.service';
 import { ComputerService } from './computer.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,6 +19,16 @@ import { IndexComponent } from './index/index.component';
 import { TokenInterceptor } from '../token-interceptor';
 import { AppLoginComponent } from './login/app-login.component';
 import { AppLogoutComponent } from './logout/app-logout.component';
+
+
+class UIErrorHandler extends ErrorHandler {
+  constructor() { super(); }
+  handleError(error) {
+    super.handleError(error);
+    console.log(`Error occurred:${error.message}`);
+    throw error;
+  }
+}
 
 @NgModule({
   declarations: [
@@ -58,6 +64,10 @@ import { AppLogoutComponent } from './logout/app-logout.component';
     HttpClientModule,
   ],
   providers: [
+    {
+      provide: ErrorHandler,
+      useClass: UIErrorHandler
+    },
     CompanyService,
     ComputerService,
     {
@@ -65,6 +75,7 @@ import { AppLogoutComponent } from './logout/app-logout.component';
       useClass: TokenInterceptor,
       multi: true
     }
+
   ],
   bootstrap: [
     AppComponent,
