@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
 import { CompaniesComponent } from '../companies/companies.component';
 import { CompanyComponent } from './company.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CompanyComponent } from './company.component';
     CommonModule,
     CustomMaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
 
   exports: [
