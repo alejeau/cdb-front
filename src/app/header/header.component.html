@@ -27,7 +27,7 @@
           <li><a href="#" routerLink="/computer">List computers</a></li>
           <li><a href="#" routerLink="/computer/add">Add computer</a></li>
           <li class="vertical-sep">&nbsp;</li>
-          <li><a href="logout">Logout</a></li>
+          <li *ngIf="authService.isLoggedIn()"><a href="logout">Logout</a></li>
           <li class="vertical-sep">&nbsp;</li>
         </ul>
     </div>
