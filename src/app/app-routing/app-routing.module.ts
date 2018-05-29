@@ -42,7 +42,7 @@ const routes: Routes = [
     path: 'computer/update/:id',
     component: ComputerUpdateComponent,
     pathMatch: 'full',
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard, AdminGuard]
   },
   {
     path: 'computer/add',
