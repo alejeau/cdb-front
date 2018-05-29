@@ -12,7 +12,7 @@ export class ComputerComponent implements OnInit {
 
   @Input() computer: Computer;
   @Output() deleteEvent = new EventEmitter<number>();
-  show: boolean;
+  show = true;
 
   constructor(private computerService: ComputerService) { }
 
