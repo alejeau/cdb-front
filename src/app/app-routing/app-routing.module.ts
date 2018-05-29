@@ -12,6 +12,7 @@ import { AppLoginComponent } from '../login/app-login.component';
 import { AuthGuard } from '../auth/auth-guard.service';
 import { AppLogoutComponent } from '../logout/app-logout.component';
 import {AdminGuard} from '../auth/admin-guard.service';
+import {RegisterComponent} from '../register/register.component';
 
 const routes: Routes = [
   {
@@ -60,6 +61,11 @@ const routes: Routes = [
     component : AppLogoutComponent,
     pathMatch : 'full',
     canActivate : [AuthGuard]
+  },
+  {
+    path : 'register',
+    component : RegisterComponent,
+    pathMatch : 'full'
   },
   {
     path: '**',

@@ -68,6 +68,7 @@ export class AppLoginComponent implements OnInit {
 
       }),
       (error) => {
+        error.
         this.message = 'Wrong username/password';
         this.error = true;
       });

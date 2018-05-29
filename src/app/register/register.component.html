@@ -8,14 +8,14 @@
     </div>
 
     <ng-template #success>
-     <div class="card-panel green lighten-2 success-message">
-       <div class="icon"><i class="medium material-icons">check_circle</i></div>
-       <div>{{ message }}</div>
-     </div>
+      <div class="card-panel green lighten-2 success-message">
+        <div class="icon"><i class="medium material-icons">check_circle</i></div>
+        <div>{{ message }}</div>
+      </div>
     </ng-template>
-</div>
+  </div>
 
-  <form [formGroup]="loginForm" (ngSubmit)="login()" #form="ngForm">
+  <form [formGroup]="registerForm" (ngSubmit)="register()" #form="ngForm">
 
     <div class="form-group input-field">
       <input type="text" name="username" class="form-control" id="username" formControlName="username" placeholder="Username" >
@@ -28,9 +28,9 @@
     </div>
 
     <div class="form-buttons-bottom">
-      <a  (click)="login()"></a>
-      <button class="btn red waves-effect waves-light" type="submit"  [disabled]="loginForm.invalid" >
-        Sign in
+      <a  (click)="register()"></a>
+      <button class="btn red waves-effect waves-light" type="submit"  [disabled]="registerForm.invalid" >
+        Register
       </button>
     </div>
   </form>
