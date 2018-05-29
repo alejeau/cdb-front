@@ -29,6 +29,7 @@ export class AuthService {
     this.logoutSuccess = 'true';
     console.log('AuthService logout removing token from localStorage');
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
   }
 
   isLoggedIn(): boolean {
@@ -48,7 +49,7 @@ export class AuthService {
     return localStorage.getItem('role') === 'ADMIN';
   }
 
-  isUser(): boolean{
+  isUser(): boolean {
     return localStorage.getItem('role') === 'USER';
   }
 

@@ -11,20 +11,13 @@ export class AdminGuard implements CanActivate, CanActivateChild {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    this.router.navigate(['']);
+    console.log('Can Activate', localStorage.getItem('role'));
     return localStorage.getItem('role') === 'ADMIN';
   }
 
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     return this.canActivate(route, state);
   }
-/*
-            if (this.authService.isLoggedIn()) {
-              return false;
-            }
-            return role_str === 'ADMIN';
-        });
-    }*/
 
 
 
