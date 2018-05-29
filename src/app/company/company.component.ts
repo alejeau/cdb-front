@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Company } from '../company.model';
 import { CompanyService } from '../company.service';
 import { interval } from 'rxjs';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-company',
@@ -15,7 +16,7 @@ export class CompanyComponent implements OnInit {
   show: boolean;
   @Input() searching = false;
 
-  constructor(private companyService: CompanyService) { }
+  constructor(private companyService: CompanyService, private authService: AuthService) { }
 
   ngOnInit() {
     if (this.searching) {

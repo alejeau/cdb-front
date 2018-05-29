@@ -12,6 +12,8 @@ export class AuthService {
 
   logoutSuccess = 'true';
 
+  role: string;
+
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string): Observable<string> {
@@ -20,6 +22,7 @@ export class AuthService {
     // const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     const body =  { 'username' : username, 'password' : password }
     return this.http.post(this.baseUrl + 'login', body, { headers: headers, responseType: 'text' });
+
   }
 
   logout(): void {
@@ -29,7 +32,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    console.log('Local Storage get token ', localStorage.getItem('token'))
+    console.log('Local Storage get token ', localStorage.getItem('token'));
     console.log(localStorage.getItem('token') === null);
     return !(localStorage.getItem('token') === null);
   }
@@ -37,6 +40,22 @@ export class AuthService {
   getToken(): string {
     return (localStorage.getItem('token'));
   }
+
+  getRole(): Observable<string> {
+    const token = localStorage.getItem('token');
+    return this.http.get(this.baseUrl + 'role/' + token, {responseType : 'text'});
+  }
+
+  isAdmin(): boolean {
+    return localStorage.getItem('role') === 'ADMIN';
+  }
+
+  isUser(): boolean{
+    return localStorage.getItem('role') === 'USER';
+  }
+
+
+
 }
 
 

@@ -10,8 +10,8 @@
       <span class="card-title grey-text text-darken-4">{{ company.name }}<i class="material-icons right">close</i></span>
       <p>{{ company.description }}</p>
     </div>
-    <div class="card-action ">
-        <a href="#" routerLink="/company/update/{{ company.id }}" class="btn waves-effect waves-light blue lighten-1">Update</a>&nbsp;
+    <div *ngIf="this.authService.isAdmin()" class="card-action ">
+        <a href="/company/update/{{ company.id }}" class="btn waves-effect waves-light blue lighten-1">Update</a>&nbsp;
         <a href="#modal{{ company.id }}" class="btn waves-effect waves-light red lighten-1 modal-trigger">Delete</a>
     </div>
   </div>

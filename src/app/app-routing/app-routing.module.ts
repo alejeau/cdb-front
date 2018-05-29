@@ -11,6 +11,7 @@ import { IndexComponent } from '../index/index.component';
 import { AppLoginComponent } from '../login/app-login.component';
 import { AuthGuard } from '../auth/auth-guard.service';
 import { AppLogoutComponent } from '../logout/app-logout.component';
+import {AdminGuard} from '../auth/admin-guard.service';
 
 const routes: Routes = [
   {
@@ -23,7 +24,7 @@ const routes: Routes = [
     path: 'company/update/:id',
     component: CompanyUpdateComponent,
     pathMatch: 'full',
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard, AdminGuard]
   },
   {
     path: 'company/add',
