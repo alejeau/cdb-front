@@ -26,6 +26,7 @@ export class AppLoginComponent implements OnInit {
   setMessage(msg) {
     this.message = msg;
   }
+
   ngOnInit() {
     this.setDefaultMessage();
     this.createForm();
@@ -34,7 +35,6 @@ export class AppLoginComponent implements OnInit {
   setDefaultMessage() {
     this.message = 'Logged ' + (this.authService.isLoggedIn() ? 'in' : 'out');
   }
-
 
 
   createForm() {
@@ -65,13 +65,6 @@ export class AppLoginComponent implements OnInit {
       });
   }
 
-  /*logout() {
-    this.authService.logout();
-    this.message = 'Succesfully logged out';
-    this.error = false;
-
-    //this.setMessageSuccesLogout();
-  }*/
 
 
 
