@@ -18,8 +18,6 @@ export class AuthService {
 
   login(username: string, password: string): Observable<string> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-
-    // const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     const body =  { 'username' : username, 'password' : password }
     return this.http.post(this.baseUrl + 'login', body, { headers: headers, responseType: 'text' });
 

@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 })
 export class RegisterService {
 
-  baseUrl = 'http://localhost:8080/computer-database-webservice/';
+  baseUrl = 'http://10.0.1.206:8080/computer-database-webservice/';
 
   constructor(private http: HttpClient) { }
 
