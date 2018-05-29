@@ -32,8 +32,6 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    console.log('Local Storage get token ', localStorage.getItem('token'));
-    console.log(localStorage.getItem('token') === null);
     return !(localStorage.getItem('token') === null);
   }
 
