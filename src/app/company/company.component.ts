@@ -27,6 +27,10 @@ export class CompanyComponent implements OnInit {
     }
   }
 
+  isAdmin(): boolean {
+    return this.authService.isAdmin();
+  }
+
   delete() {
     this.companyService.deleteCompany(this.company.id.toString())
           .subscribe(

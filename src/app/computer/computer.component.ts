@@ -20,6 +20,10 @@ export class ComputerComponent implements OnInit {
   ngOnInit() {
   }
 
+  isAdmin(): boolean {
+    return this.authService.isAdmin();
+  }
+
   delete() {
     this.computerService.deleteComputer(this.computer.id.toString())
           .subscribe(

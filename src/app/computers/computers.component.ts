@@ -44,6 +44,8 @@ export class ComputersComponent implements OnInit {
           );
 
     this.computersToPrint = this.computers;
+
+    initModal();
   }
 
   setArrays(computers: Computer[]): void {

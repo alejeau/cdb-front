@@ -28,7 +28,6 @@ export class AppLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.setDefaultMessage();
     this.createForm();
   }
 
@@ -68,7 +67,6 @@ export class AppLoginComponent implements OnInit {
 
       }),
       (error) => {
-        error.
         this.message = 'Wrong username/password';
         this.error = true;
       });

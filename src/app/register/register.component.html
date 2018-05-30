@@ -1,4 +1,5 @@
 <div class="container">
+  <h1>Register</h1>
   <div *ngIf="message">
     <div *ngIf="error; else success" >
       <div class="card-panel red lighten-2 error-message">
@@ -12,28 +13,30 @@
         <div class="icon"><i class="medium material-icons">check_circle</i></div>
         <div>{{ message }}</div>
       </div>
-      <button class="btn green waves-effect waves-light"><a href="login">Login</a></button>
+      <a href="#" routerLink="login" class="btn waves-effect waves-light">Login</a>
     </ng-template>
 
   </div>
 
-  <form [formGroup]="registerForm" (ngSubmit)="register()" #form="ngForm">
+  <div *ngIf="!(message && !error)">
+    <form [formGroup]="registerForm" (ngSubmit)="register()" #form="ngForm">
 
-    <div class="form-group input-field">
-      <input type="text" name="username" class="form-control" id="username" formControlName="username" >
-      <label for="username">Username: </label>
-    </div>
+      <div class="form-group input-field">
+        <input type="text" name="username" class="form-control" id="username" formControlName="username" >
+        <label for="username">Username: </label>
+      </div>
 
-    <div class="form-group input-field">
-      <input type="password" name="password" class="form-control" id="password" formControlName="password"  >
-      <label for="password">Password: </label>
-    </div>
+      <div class="form-group input-field">
+        <input type="password" name="password" class="form-control" id="password" formControlName="password"  >
+        <label for="password">Password: </label>
+      </div>
 
-    <div class="form-buttons-bottom">
-      <a  (click)="register()"></a>
-      <button class="btn red waves-effect waves-light" type="submit"  [disabled]="registerForm.invalid" >
-        Register
-      </button>
-    </div>
-  </form>
+      <div class="form-buttons-bottom">
+        <a  (click)="register()"></a>
+        <button class="btn red waves-effect waves-light" type="submit"  [disabled]="registerForm.invalid" >
+          Register
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

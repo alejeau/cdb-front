@@ -8,8 +8,8 @@
   <li><a href="#" routerLink="/computer/add">Add computer</a></li>
   <li class="divider"></li>
   <li *ngIf="!authService.isLoggedIn()"><a href="#" routerLink="/register">Register</a></li>
-  <li *ngIf="!authService.isLoggedIn()" ><a href="logout">Login</a></li>
-  <li *ngIf="authService.isLoggedIn()" ><a href="logout">Logout</a></li>
+  <li *ngIf="!authService.isLoggedIn()" ><a href="#" routerLink="logout">Login</a></li>
+  <li *ngIf="authService.isLoggedIn()" ><a href="#" routerLink="logout">Logout</a></li>
 </ul>
 
 
@@ -30,8 +30,8 @@
           <li><a href="#" routerLink="/computer/add">Add computer</a></li>
           <li class="vertical-sep">&nbsp;</li>
           <li *ngIf="!authService.isLoggedIn()"><a href="#" routerLink="/register">Register</a></li>
-          <li *ngIf="authService.isLoggedIn()"><a href="logout">Logout</a></li>
-          <li *ngIf="!authService.isLoggedIn()" ><a href="logout">Login</a></li>
+          <li *ngIf="authService.isLoggedIn()"><a href="#" routerLink="logout">Logout</a></li>
+          <li *ngIf="!authService.isLoggedIn()" ><a href="#" routerLink="logout">Login</a></li>
         <li class="vertical-sep">&nbsp;</li>
         </ul>
     </div>

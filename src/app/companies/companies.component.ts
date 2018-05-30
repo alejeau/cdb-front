@@ -27,6 +27,8 @@ export class CompaniesComponent implements OnInit {
           );
 
     this.companiesToPrint = this.companies;
+
+    initModal();
   }
 
   setArrays(companies: Company[]): void {
