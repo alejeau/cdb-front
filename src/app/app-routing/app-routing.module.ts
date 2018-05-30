@@ -31,7 +31,7 @@ const routes: Routes = [
     path: 'company/add',
     component: CompanyAddComponent,
     pathMatch: 'full',
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard, AdminGuard]
   },
   {
     path: 'computer',
@@ -49,7 +49,7 @@ const routes: Routes = [
     path: 'computer/add',
     component: ComputerAddComponent,
     pathMatch: 'full',
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard, AdminGuard]
   },
   {
     path: 'login',

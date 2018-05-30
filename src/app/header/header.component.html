@@ -2,10 +2,10 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
   <li><a href="#" routerLink="/company">List companies</a></li>
-  <li><a href="#" routerLink="/company/add">Add company</a></li>
+  <li *ngIf="authService.isAdmin()"><a href="#" routerLink="/company/add">Add company</a></li>
   <li class="divider"></li>
   <li><a href="#" routerLink="/computer">List computers</a></li>
-  <li><a href="#" routerLink="/computer/add">Add computer</a></li>
+  <li *ngIf="authService.isAdmin()"><a href="#" routerLink="/computer/add">Add computer</a></li>
   <li class="divider"></li>
   <li *ngIf="!authService.isLoggedIn()"><a href="#" routerLink="/register">Register</a></li>
   <li *ngIf="!authService.isLoggedIn()" ><a href="#" routerLink="logout">Login</a></li>
@@ -24,10 +24,10 @@
       <ul class="right hide-on-med-and-down">
         <li class="vertical-sep">&nbsp;</li>
           <li><a href="#" routerLink="/company">List companies</a></li>
-          <li><a href="#" routerLink="/company/add">Add company</a></li>
+          <li *ngIf="authService.isAdmin()"><a href="#" routerLink="/company/add">Add company</a></li>
           <li class="vertical-sep">&nbsp;</li>
           <li><a href="#" routerLink="/computer">List computers</a></li>
-          <li><a href="#" routerLink="/computer/add">Add computer</a></li>
+          <li *ngIf="authService.isAdmin()"><a href="#" routerLink="/computer/add">Add computer</a></li>
           <li class="vertical-sep">&nbsp;</li>
           <li *ngIf="!authService.isLoggedIn()"><a href="#" routerLink="/register">Register</a></li>
           <li *ngIf="authService.isLoggedIn()"><a href="#" routerLink="logout">Logout</a></li>

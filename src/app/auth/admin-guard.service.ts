@@ -12,6 +12,10 @@ export class AdminGuard implements CanActivate, CanActivateChild {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     console.log('Can Activate', localStorage.getItem('role'));
+    if (localStorage.getItem('role') === 'ADMIN') {
+      return true;
+    }
+    this.router.navigate(['/']);
     return localStorage.getItem('role') === 'ADMIN';
   }
 
