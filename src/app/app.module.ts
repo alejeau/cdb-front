@@ -1,4 +1,4 @@
-import {ErrorHandler, Injectable, NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -20,15 +20,6 @@ import { TokenInterceptor } from '../token-interceptor';
 import { AppLoginComponent } from './login/app-login.component';
 import { AppLogoutComponent } from './logout/app-logout.component';
 
-
-class UIErrorHandler extends ErrorHandler {
-  constructor() { super(); }
-  handleError(error) {
-    super.handleError(error);
-    console.log(`Error occurred:${error.message}`);
-    throw error;
-  }
-}
 
 @NgModule({
   declarations: [
@@ -64,10 +55,6 @@ class UIErrorHandler extends ErrorHandler {
     HttpClientModule,
   ],
   providers: [
-    {
-      provide: ErrorHandler,
-      useClass: UIErrorHandler
-    },
     CompanyService,
     ComputerService,
     {
