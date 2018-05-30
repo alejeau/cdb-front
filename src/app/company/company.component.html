@@ -1,0 +1,29 @@
+<div [ngClass]="{ 'scale-in' : show, 'scale-out' : !show }" class="col s12 m6 l4 scale-transition">
+  <div class="card small sticky-action">
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{ company.name }}<i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-image waves-effect waves-block waves-light low">
+      <img class="activator image" src="{{ company.pictureUrl }}" onerror="this.style.display='none'">
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">{{ company.name }}<i class="material-icons right">close</i></span>
+      <p>{{ company.description }}</p>
+    </div>
+    <div *ngIf="isAdmin()" class="card-action ">
+        <a href="#" routerLink="/company/update/{{ company.id }}" class="btn waves-effect waves-light blue lighten-1">Update</a>&nbsp;
+        <a href="#modal{{ company.id }}" class="btn waves-effect waves-light red lighten-1 modal-trigger">Delete</a>
+    </div>
+  </div>
+</div>
+<div id="modal{{ company.id }}" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>Confirm deletion</h4>
+    <p>Are you sure you want to delete the company <i>"{{ company.name }}"</i>?<br/>
+    Be careful, this action cannot be undone!</p>
+  </div>
+  <div class="modal-footer">
+    <a href="/company#!" class="modal-close btn grey waves-effect waves-light left">No, go back</a>
+    <a href="/company#!" class="modal-close btn red  waves-effect waves-light" (click)="delete()">Yes, delete company</a>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<header>
+  <nav class="nav-extended">
+    <div class="nav-content">
+      <div class="row">
+        <div class="col s12 m6">
+          <form>
+            <div class="input-field" >
+              <input id="search" type="search" name="searchTerm" placeholder="Computer name" required (ngModelChange)="search($event)" [(ngModel)]="searchTerm">
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          </form>
+        </div>
+        <div class="col s12 m6">
+          <form>
+            <div class="select-field">
+              <select id="search" type="search" name="searchTerm" (ngModelChange)="filterByCompany($event)" [(ngModel)]="companyName">
+                <option value="">All companies</option>
+                <option *ngFor="let company of companies" value="{{ company.name }}">{{ company.name }}</option>
+              </select>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container" (searchEvent)="search($event)">
+  <div class="row">
+      <div *ngIf="computers == null;then loading else loaded"></div>
+
+      <ng-template #loading>
+        <div class="preloader-wrapper big active" style="margin:auto">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #loaded>
+          <app-computer *ngFor="let computer of computersToPrint" [computer]="computer" (deleteEvent)="delete($event)"></app-computer>
+      </ng-template>
+  </div>
+</div>

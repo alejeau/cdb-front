@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Add new company</h1>
+  <div *ngIf="errorMessage" class="card-panel red lighten-2 error-message">
+    <div>
+      <div class="icon"><i class="medium material-icons">error</i></div>
+      <div>{{errorMessage}}</div>
+    </div>
+  </div>
+
+  <form [formGroup]="addForm">
+    <div class="form-group input-field">
+      <input name="name" type="text" class="form-control" id="name" formControlName="name" required>
+      <label for="name">Company Name: </label>
+    </div>
+
+    <div class="form-group input-field">
+      <input name="picture" type="text" class="form-control" id="picture" formControlName="url">
+      <label for="picture">Logo link: </label>
+    </div>
+
+    <div class="form-group input-field">
+      <textarea name="description" type="text" class="materialize-textarea form-control" id="description" formControlName="description" data-length="255"></textarea>
+      <label for="description">Company description: </label>
+    </div>
+
+    <div class="form-buttons-bottom">
+      <a class="btn red waves-effect waves-light" (click)="cancel()">Cancel</a>&nbsp;
+      <button class="btn waves-effect waves-light" (click)="addCompany()" [disabled]="addForm.invalid">Add company</button>
+    </div>
+  </form>
+</div>
